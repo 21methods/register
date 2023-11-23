@@ -1,0 +1,22 @@
+{%load static%}
+<!DOCTYPE html>
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="{%static 'style.css' %}">
+</head>
+<body>
+    <div id="box">
+        <h1>login</h1>
+        <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+        <p class="text-center small">Enter your username &amp; password to login</p>
+        <form method="post" action="{% url 'login' %}">
+            {%csrf_token%}
+        <div id="username">
+        <label for="user id">username: </label>
+        <input type="text" minlength="8" maxlength="20" placeholder="username" required><br></div>
+        <div id="pword"><label for="password">password: </label>
+        <input type="password" minlength="8" maxlength="20" placeholder="password" required><br></div>
+        <div id="button"><button type='submit' id="btn">login</button></div>
+    </form>
+    </div>
+</body>
