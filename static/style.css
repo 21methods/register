@@ -52,11 +52,6 @@ input{
     border-radius: 5px;
     padding: 3px;
     cursor: pointer;
-    margin-left: 40%;
+    margin-left: 66%;
     margin-top: 2%;
-}
-#btn{
-    background-color: #4caf50;
-    color: #fff;
-    border-radius: 5px;
 }

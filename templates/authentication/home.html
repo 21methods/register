@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
         home
     </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <h3> welcome to the new world</h3>
+
+    {% if user.is_authenticated%}
+    <h3>hello {{first_name}}</h3>
+    <h4> you're successfully logged in.</h4>
     
 </body>

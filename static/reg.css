@@ -17,7 +17,7 @@ body{
 }
 #box{
     width: 500px;
-    height: 350px;
+    height: 400px;
     background-color: #ffffff;
     border-style: solid;
     border-width: 3px ;
@@ -52,7 +52,7 @@ label{
 }
 input{
     display: inline-block;
-    width: 50%;
+    width: 35%;
     padding: 3px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -60,6 +60,12 @@ input{
     box-sizing: border-box;
 }
 input#id_username{
+    margin-left: 70px;
+}
+input#id_last_name{
+    margin-left: 70px;
+}
+input#id_first_name{
     margin-left: 70px;
 }
 input#id_email{
@@ -81,6 +87,6 @@ button {
     border-radius: 5px;
     padding: 3px;
     cursor: pointer;
-    margin-left: 50%;
+    margin-left: 55%;
     margin-top: 2%;
 }
