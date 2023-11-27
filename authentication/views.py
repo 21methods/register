@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import authenticate, login, logout
 from django import forms
 from django.contrib import messages
 
@@ -39,13 +39,11 @@ def register(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            user = authenticate(username = username, password=password )
-            login(request, user)
-            message.success(request,'registered successful!')
+            messages.success(request,'registered successful! please login')
 
 
             # Redirect to a success page or login the user
-            return redirect('authentication/login')
+            return redirect('login')
     else:
         form = RegistrationForm()
 
@@ -66,24 +64,30 @@ def register(request):
     return render(request, 'authentication/register.html', {"form":loginform()})
     '''
 
-def login(request):
+def login_user(request):
     if request.method == 'POST':
         username = request.POST['username']
-        password1 = request.POST['password']
+        password = request.POST['password1']
+        user = authenticate(request, username=username, password=password)
 
-        User = authenticate(username=username, password=password)
-
-        if User is not None:
+        if user is not None:
             login(request, user)
-            return render(request, 'authentication/home.html', {'first_name' : first_name})
+            return redirect('home')
 
         else:
-            messages.error(request, 'Bad Credentials!')
+            messages.error(request, 'Incorrect username or password')
             return redirect('login')
 
 
     return render(request, 'authentication/login.html')
 
-@login_required(login_url="/login")
+@login_required(login_url="login")
 def home(request):
+    messages.success(request, 'you are logged in successfully')
     return render(request, 'authentication/home.html')
+
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, 'you are successfully logged out')
+    return redirect('login')

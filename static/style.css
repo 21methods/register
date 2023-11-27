@@ -46,9 +46,7 @@ input{
     margin-left: 22%;
     margin-bottom: 8px;
 }
-#btn{
-    background-color: #4caf50;
-    color: #fff;
+.btn-outline-success{
     border-radius: 5px;
     padding: 3px;
     cursor: pointer;
